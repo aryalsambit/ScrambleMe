@@ -31,14 +31,14 @@ public class FooterFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		
-		Typeface textFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/bradhitc.TTF");
+		Typeface textFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/CaviarDreams.ttf");
 		
 		gallery = (Button) getActivity().findViewById(R.id.buttonGallery);
 		camera = (Button) getActivity().findViewById(R.id.buttonCamera);
 		
 		gallery.setTypeface(textFont);
 		gallery.setTextColor(Color.BLACK);
-		gallery.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
+		gallery.setTextSize(getResources().getDimension(R.dimen.button_text_size));
 		
 		camera.setTypeface(textFont);
 		camera.setTextColor(Color.BLACK);

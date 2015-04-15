@@ -46,16 +46,16 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 		email = (EditText) findViewById(R.id.editTextEmailSignIn);
 		password = (EditText) findViewById(R.id.editTextPasswordSignIn);		
 		
-		Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/title.TTF");
-		Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/bradhitc.TTF");
+		Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
+		Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
 		
 		login.setTypeface(textFont);
 		login.setTextColor(Color.BLACK);
-		login.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		login.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
 		
 		create.setTypeface(textFont);
 		create.setTextColor(Color.BLACK);
-		create.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		create.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
 		
 		facebook.setTypeface(textFont);
 		facebook.setTextColor(Color.BLACK);

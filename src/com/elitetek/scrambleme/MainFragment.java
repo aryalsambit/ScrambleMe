@@ -33,9 +33,9 @@ public class MainFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);		
 		
 		TextView title = (TextView) getActivity().findViewById(R.id.textViewGalleryTitle);
-		Typeface titleFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/title.TTF");
+		Typeface titleFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/FFF_Tusj.ttf");
 		title.setTypeface(titleFont);
-		title.setTextSize(getActivity().getResources().getDimension(R.dimen.title_text_size));
+		title.setTextSize(getActivity().getResources().getDimension(R.dimen.main_title_text_size));
 		title.setTextAlignment(TextView.TEXT_ALIGNMENT_CENTER);
 		
 		

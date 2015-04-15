@@ -1,18 +1,19 @@
 package com.elitetek.scrambleme;
 
-import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SignUpCallback;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class SignupActivity extends Activity implements View.OnClickListener {
 
@@ -20,6 +21,8 @@ public class SignupActivity extends Activity implements View.OnClickListener {
 	EditText email;
 	EditText password;
 	EditText passwordConfirm;
+	Button create;
+	Button cancel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +30,19 @@ public class SignupActivity extends Activity implements View.OnClickListener {
 		setContentView(R.layout.activity_signup);
 		
 		/* Setup UI Components *************************************************************/
-		findViewById(R.id.buttonCreateAccount).setOnClickListener(this);
-		findViewById(R.id.buttonCancel).setOnClickListener(this);
+		create = (Button) findViewById(R.id.buttonCreateAccount);
+		create.setOnClickListener(this);
+		cancel = (Button) findViewById(R.id.buttonCancel);
+		cancel.setOnClickListener(this);
 		
 		name = (EditText) findViewById(R.id.editTextName);
 		email = (EditText) findViewById(R.id.editTextEmailCreate);
 		password = (EditText) findViewById(R.id.editTextPassCreate);
 		passwordConfirm = (EditText) findViewById(R.id.editTextPassConf);
+		
+		Typeface font = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
+		create.setTypeface(font);
+		cancel.setTypeface(font);
 		/***********************************************************************************/
 	}
 
@@ -103,4 +112,13 @@ public class SignupActivity extends Activity implements View.OnClickListener {
 			startActivity(intent);
 		}
 	}
+
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+		finish();
+		startActivity(intent);
+	}
+	
+	
 }

@@ -53,16 +53,20 @@
         android:id="@+id/buttonCreateAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="40dp"
-        android:text="@string/button_create_account"
-        android:textColor="@color/text_color" />
+        android:background="@drawable/gradient_button"
+        android:text="@string/button_create_account" />
 
     <Button
         android:id="@+id/buttonCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:text="@string/button_cancel"
-        android:textColor="@color/text_color" />
+        android:background="@drawable/gradient_button"
+        android:text="@string/button_cancel" />
 
 </LinearLayout>
