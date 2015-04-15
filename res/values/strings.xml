@@ -13,7 +13,6 @@
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="button_login">Login</string>
-    <string name="button_signup">Sign Up</string>
     <string name="button_facebook">Log in with Facebook</string>
     <string name="button_twitter">Log in with Twitter</string>
     <string name="title_activity_main">Scramble Me</string>
@@ -23,12 +22,11 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="button_create_account">Create Account</string>
     <string name="button_cancel">Cancel</string>
-
-    <!-- Menu -->
-    <string name="menu_logout">Logout</string>
-    <string name="gallery_title">Gallery</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="gallery_title">Gallery</string>
     <string name="text_gallery">Choose Photo From Gallery</string>
     <string name="text_camera">Take a Picture</string>
+    
+    <!-- Menu -->
+    <string name="menu_logout">Logout</string>    
 
 </resources>

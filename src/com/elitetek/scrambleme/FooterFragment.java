@@ -1,12 +1,14 @@
 package com.elitetek.scrambleme;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment
@@ -16,17 +18,39 @@ import android.view.ViewGroup;
  */
 public class FooterFragment extends Fragment {
 
+	Button gallery;
+	Button camera;
+	
 	private OnFragmentInteractionListener mListener;
 
 	public FooterFragment() {
 		// Required empty public constructor
 	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		Typeface textFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/bradhitc.TTF");
+		
+		gallery = (Button) getActivity().findViewById(R.id.buttonGallery);
+		camera = (Button) getActivity().findViewById(R.id.buttonCamera);
+		
+		gallery.setTypeface(textFont);
+		gallery.setTextColor(Color.BLACK);
+		gallery.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
+		
+		camera.setTypeface(textFont);
+		camera.setTextColor(Color.BLACK);
+		camera.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_footer, container, false);
+		return inflater.inflate(R.layout.fragment_footer, container, false);	
 	}
 	
 	@Override
@@ -43,17 +67,9 @@ public class FooterFragment extends Fragment {
 	public void onDetach() {
 		super.onDetach();
 		mListener = null;
-	}
+	}	
+	
 
-	/**
-	 * This interface must be implemented by activities that contain this
-	 * fragment to allow an interaction in this fragment to be communicated to
-	 * the activity and potentially other fragments contained in that activity.
-	 * <p>
-	 * See the Android Training lesson <a href=
-	 * "http://developer.android.com/training/basics/fragments/communicating.html"
-	 * >Communicating with Other Fragments</a> for more information.
-	 */
 	public interface OnFragmentInteractionListener {
 		public void fromFooterFragment();
 	}

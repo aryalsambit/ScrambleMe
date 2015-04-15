@@ -6,6 +6,7 @@ import com.parse.ParseUser;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +21,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 	EditText email;
 	EditText password;
+	Button login;
+	Button create;
+	Button facebook;
+	Button twitter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +32,39 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 		setContentView(R.layout.activity_login);
 		
 		/* UI element setup ****************************************************************************************/
-		findViewById(R.id.buttonLogin).setOnClickListener(this);
-		findViewById(R.id.buttonCreateAccount).setOnClickListener(this);
-		findViewById(R.id.buttonFacebook).setOnClickListener(this);
-		findViewById(R.id.buttonTwitter).setOnClickListener(this);
+		login = (Button) findViewById(R.id.buttonLogin);
+		login.setOnClickListener(this);
+		create = (Button) findViewById(R.id.buttonCreateAccount);
+		create.setOnClickListener(this);
+		facebook = (Button) findViewById(R.id.buttonGallery);
+		facebook.setOnClickListener(this);
+		twitter = (Button) findViewById(R.id.buttonCamera);
+		twitter.setOnClickListener(this);
 		
 		TextView title = (TextView) findViewById(R.id.textViewTitle);
 		
 		email = (EditText) findViewById(R.id.editTextEmailSignIn);
-		password = (EditText) findViewById(R.id.editTextPasswordSignIn);
+		password = (EditText) findViewById(R.id.editTextPasswordSignIn);		
 		
 		Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/title.TTF");
+		Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/bradhitc.TTF");
+		
+		login.setTypeface(textFont);
+		login.setTextColor(Color.BLACK);
+		login.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		
+		create.setTypeface(textFont);
+		create.setTextColor(Color.BLACK);
+		create.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		
+		facebook.setTypeface(textFont);
+		facebook.setTextColor(Color.BLACK);
+		facebook.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		
+		twitter.setTypeface(textFont);
+		twitter.setTextColor(Color.BLACK);
+		twitter.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		
 		title.setTypeface(titleFont);
 		title.setTextSize(getResources().getDimension(R.dimen.title_text_size));
 		/****   /UI element setup ********************************************************************************************/
@@ -94,10 +121,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				startActivity(intent);
 				
 				break;
-			case R.id.buttonFacebook:
+			case R.id.buttonGallery:
 				
 				break;
-			case R.id.buttonTwitter:
+			case R.id.buttonCamera:
 				
 				break;
 		}

@@ -9,24 +9,24 @@
     <!-- TODO: Update blank fragment layout -->
 
         <Button
-            android:id="@+id/buttonTwitter"
+            android:id="@+id/buttonCamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:background="@color/text_color"
-            android:drawableLeft="@drawable/camera_smaller"
-            android:drawableStart="@drawable/camera_smaller"
+            android:background="@drawable/gradient_button"
+            android:drawableLeft="@drawable/camera_small_alpha"
+            android:drawableStart="@drawable/camera_small_alpha"
             android:lineSpacingExtra="0dp"
             android:padding="10dp"
             android:text="@string/text_camera" />
 
         <Button
-            android:id="@+id/buttonFacebook"
+            android:id="@+id/buttonGallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonTwitter"
-            android:background="@color/text_color"
+            android:layout_below="@+id/buttonCamera"
+            android:background="@drawable/gradient_button"
             android:drawableLeft="@drawable/photo_smaller"
             android:drawableStart="@drawable/photo_smaller"
             android:padding="10dp"
