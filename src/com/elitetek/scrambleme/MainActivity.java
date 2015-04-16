@@ -1,14 +1,19 @@
 package com.elitetek.scrambleme;
 
-import com.parse.ParseUser;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity implements MainFragment.OnFragmentInteractionListener, FooterFragment.OnFragmentInteractionListener {
+import com.parse.ParseUser;
 
+public class MainActivity extends Activity implements MainFragment.OnFragmentInteractionListener,
+													  FooterFragment.OnFragmentInteractionListener,
+													  ScrambleFragment.OnFragmentInteractionListener {
+
+	String pathToPhoto;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +53,20 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 	}
 
 	@Override
-	public void fromFooterFragment() {
+	public void fromFooterFragment(String path) {
 		// code to run from FooterFragment
+		/*
+		Bundle stuffForScrambleFrag = new Bundle();
+		stuffForScrambleFrag.putString("pathToPhoto", path);
+		ScrambleFragment scrambleReference = new ScrambleFragment();
+		scrambleReference.setArguments(stuffForScrambleFrag);
+		*/
+		getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentByTag("footer")).commit();
+		getFragmentManager().beginTransaction().replace(R.id.container, new ScrambleFragment(path), "scramble").commit();		
+	}
+
+	@Override
+	public void fromScrambleFragment() {
+		// code to run from ScrambleFragment		
 	}
 }
