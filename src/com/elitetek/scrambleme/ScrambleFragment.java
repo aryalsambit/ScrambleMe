@@ -43,6 +43,7 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	String pathToFile;
 	LinearLayout root;
 	private int COUNT = 0;
+	private static final int FROM_SHARE = 13;
 
 	public ScrambleFragment(String path) {
 		// Required empty public constructor
@@ -127,12 +128,18 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 					        e.printStackTrace();
 					}
 					share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/temporary_file.jpg"));
-					startActivity(Intent.createChooser(share, "Share Image"));
+					startActivityForResult(Intent.createChooser(share, "Share Image"), FROM_SHARE);
 				}
 					
 		}
 	}
 	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == FROM_SHARE)
+			mListener.fromScrambleFragment();
+	}
+
 	public interface OnFragmentInteractionListener {
 		public void fromScrambleFragment();
 	}
