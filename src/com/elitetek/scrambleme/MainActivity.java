@@ -3,6 +3,7 @@ package com.elitetek.scrambleme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -40,6 +41,8 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 			
 			ParseUser.logOut();
 			finish();
+			Intent backToLogin = new Intent(MainActivity.this, LoginActivity.class);
+			startActivity(backToLogin);
 			
 			return true;
 		}
@@ -51,6 +54,12 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 	public void fromMainFragment() {
 		// code to run from MainFragment
 	}
+
+	/**
+	 * Prevent back button from leaving the app
+	 */
+	@Override
+	public void onBackPressed() { Log.d("click", "in main back pressed"); }
 
 	@Override
 	public void fromFooterFragment(String path) {
@@ -67,6 +76,10 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 
 	@Override
 	public void fromScrambleFragment() {
-		// code to run from ScrambleFragment		
+		// code to run from ScrambleFragment
+		getFragmentManager().beginTransaction()
+			.replace(R.id.container, new MainFragment(), "main")
+			.add(R.id.footer, new FooterFragment(), "footer")
+			.commit();
 	}
 }

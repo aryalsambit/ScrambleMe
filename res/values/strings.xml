@@ -28,5 +28,6 @@
 
     <!-- Menu -->
     <string name="menu_logout">Logout</string>
+    <string name="button_scramble">Sramble Pic</string>
 
 </resources>

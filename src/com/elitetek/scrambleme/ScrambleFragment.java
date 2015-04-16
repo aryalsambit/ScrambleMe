@@ -8,13 +8,17 @@ import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment
@@ -29,6 +33,8 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	ImageView pictureToScramble;
 	Bitmap img;
 	String pathToFile;
+	LinearLayout root;
+	private int COUNT = 0;
 
 	public ScrambleFragment(String path) {
 		// Required empty public constructor
@@ -45,12 +51,32 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		
+		/***** UI SETUP ******************************************************************************************/
+		Typeface textFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/CaviarDreams.ttf");
+		
+		root = (LinearLayout) getActivity().findViewById(R.id.LinearLayoutScrambleRoot);		
 		scrambleMe = (Button) getActivity().findViewById(R.id.buttonScramble);
 		pictureToScramble = (ImageView) getActivity().findViewById(R.id.imageViewPic);
 		
-		scrambleMe.setOnClickListener(this);	
+		scrambleMe.setOnClickListener(this);
+		scrambleMe.setTypeface(textFont);
+		scrambleMe.setTextSize(getResources().getDimension(R.dimen.button_text_size));
+		/***** END  UI SETUP *************************************************************************************/
+			
 		
 		img = setPic(pathToFile);
+		
+		ScrambleFragment fragment = this;
+		fragment.getView().setFocusableInTouchMode(true);
+		fragment.getView().setOnKeyListener( new OnKeyListener() { 
+			@Override
+			public boolean onKey(View arg0, int keyCode, KeyEvent arg2) {
+				if( keyCode == KeyEvent.KEYCODE_BACK ) {
+		            mListener.fromScrambleFragment();
+		        }
+		        return true;
+			}
+		});
 	}
 
 	@Override
@@ -70,11 +96,16 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	}
 	
 	@Override
-	public void onClick(View v) {
+	public void onClick(View v) {		
 		
 		switch (v.getId()) {
-			case R.id.buttonScramble:
-				scrambleImage(img);
+			case R.id.buttonScramble:			
+				if (COUNT++ == 0) {
+					scrambleMe.setText("Share");
+					scrambleImage(img);
+				}
+				else
+					Log.d("click", "clicked in share-mode");
 		}
 	}
 	

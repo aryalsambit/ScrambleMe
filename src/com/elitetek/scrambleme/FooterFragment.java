@@ -144,18 +144,25 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
 					e.printStackTrace();
 				}
 			}
-		} else if (requestCode == PICK_FROM_CAMERA) {
-			/*
-			if (resultCode == RESULT_OK) {
+		} else if (requestCode == PICK_FROM_CAMERA) {			
+			if (resultCode == getActivity().RESULT_OK) {
 				if (mCurrentPhotoPath != null) {
 					galleryAddPic();
-					Intent intent = new Intent(ImagePickerActivity.this, ScrambleImageActivity.class);
-					intent.putExtra("filename", mCurrentPhotoPath);
-					startActivityForResult(intent, SCRAMBLE_IMAGE);
+					//Intent intent = new Intent(ImagePickerActivity.this, ScrambleImageActivity.class);
+					//intent.putExtra("filename", mCurrentPhotoPath);
+					//startActivityForResult(intent, SCRAMBLE_IMAGE);
+					mListener.fromFooterFragment(mCurrentPhotoPath);
 				}
-			}
-			*/
+			}			
 		}
+	}
+	
+	private void galleryAddPic() {
+		Intent mediaScanIntent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+		File f = new File(mCurrentPhotoPath);
+		Uri contentUri = Uri.fromFile(f);
+		mediaScanIntent.setData(contentUri);
+		getActivity().sendBroadcast(mediaScanIntent);
 	}
 	
 	private File setUpPhotoFile() throws IOException {

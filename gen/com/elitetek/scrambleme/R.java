@@ -42,16 +42,17 @@ public final class R {
         public static final int gradient=0x7f020006;
         public static final int gradient_button=0x7f020007;
         public static final int gradient_footer=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int me=0x7f02000a;
-        public static final int photo_icon=0x7f02000b;
-        public static final int photo_icon_small=0x7f02000c;
-        public static final int photo_smaller=0x7f02000d;
-        public static final int plant=0x7f02000e;
-        public static final int twitter_small=0x7f02000f;
+        public static final int gradient_image_background=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int me=0x7f02000b;
+        public static final int photo_icon=0x7f02000c;
+        public static final int photo_icon_small=0x7f02000d;
+        public static final int photo_smaller=0x7f02000e;
+        public static final int plant=0x7f02000f;
+        public static final int twitter_small=0x7f020010;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f090000;
+        public static final int LinearLayoutScrambleRoot=0x7f090000;
         public static final int RelativeLayout1=0x7f09000f;
         public static final int action_settings=0x7f090017;
         public static final int buttonCamera=0x7f090007;
@@ -98,6 +99,7 @@ public final class R {
         public static final int button_create_account=0x7f060010;
         public static final int button_facebook=0x7f060009;
         public static final int button_login=0x7f060008;
+        public static final int button_scramble=0x7f060016;
         public static final int button_twitter=0x7f06000a;
         public static final int facebook_app_id=0x7f060003;
         public static final int gallery_title=0x7f060012;
