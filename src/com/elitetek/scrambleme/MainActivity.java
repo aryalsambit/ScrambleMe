@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 		getFragmentManager().beginTransaction()
     		.add(R.id.container, new MainFragment(), "main")
     		.add(R.id.footer, new FooterFragment(), "footer")
-    		.commit();
+    		.commit();		
 	}
 
 	@Override

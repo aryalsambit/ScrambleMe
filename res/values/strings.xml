@@ -25,6 +25,7 @@
     <string name="gallery_title">My Scrambles</string>
     <string name="text_gallery">Choose From Gallery</string>
     <string name="text_camera">Take a Picture</string>
+    <string name="send_to">Send To..</string>
 
     <!-- Menu -->
     <string name="menu_logout">Logout</string>

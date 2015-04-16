@@ -1,15 +1,22 @@
 package com.elitetek.scrambleme;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -32,6 +39,7 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	Button scrambleMe;
 	ImageView pictureToScramble;
 	Bitmap img;
+	Bitmap scrambledImg;
 	String pathToFile;
 	LinearLayout root;
 	private int COUNT = 0;
@@ -104,8 +112,24 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 					scrambleMe.setText("Share");
 					scrambleImage(img);
 				}
-				else
-					Log.d("click", "clicked in share-mode");
+				else {	
+					
+					Intent share = new Intent(Intent.ACTION_SEND);
+					share.setType("image/jpeg");
+					ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+					scrambledImg.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+					File f = new File(Environment.getExternalStorageDirectory() + File.separator + "temporary_file.jpg");
+					try {
+					    f.createNewFile();
+					    FileOutputStream fo = new FileOutputStream(f);
+					    fo.write(bytes.toByteArray());
+					} catch (IOException e) {                       
+					        e.printStackTrace();
+					}
+					share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/temporary_file.jpg"));
+					startActivity(Intent.createChooser(share, "Share Image"));
+				}
+					
 		}
 	}
 	
@@ -135,19 +159,18 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 		}
 		Collections.shuffle(imgList);
 		
-		Bitmap bm = Bitmap.createBitmap(chunkWidth * rows,
-				chunkHeight * cols, Bitmap.Config.ARGB_4444);
+		Bitmap bm = Bitmap.createBitmap(chunkWidth * rows, chunkHeight * cols, Bitmap.Config.ARGB_4444);
 		Canvas canvas = new Canvas(bm);
 		int num = 0;
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				canvas.drawBitmap(imgList.get(num), chunkWidth * i,
-						chunkHeight * j, null);
+				canvas.drawBitmap(imgList.get(num), chunkWidth * i,	chunkHeight * j, null);
 				num++;
 			}
 		}
 		int nh = (int) ( bm.getHeight() * (512.0 / bm.getWidth()) );
 		Bitmap scaled = Bitmap.createScaledBitmap(bm, 512, nh, true);
+		scrambledImg = scaled;
 		pictureToScramble.setImageBitmap(scaled);
 	}
 

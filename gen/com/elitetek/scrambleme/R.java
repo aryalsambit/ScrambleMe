@@ -99,7 +99,7 @@ public final class R {
         public static final int button_create_account=0x7f060010;
         public static final int button_facebook=0x7f060009;
         public static final int button_login=0x7f060008;
-        public static final int button_scramble=0x7f060016;
+        public static final int button_scramble=0x7f060017;
         public static final int button_twitter=0x7f06000a;
         public static final int facebook_app_id=0x7f060003;
         public static final int gallery_title=0x7f060012;
@@ -111,9 +111,10 @@ public final class R {
         public static final int hint_password=0x7f060007;
         /**  Menu 
          */
-        public static final int menu_logout=0x7f060015;
+        public static final int menu_logout=0x7f060016;
         public static final int parse_app_id=0x7f060001;
         public static final int parse_client_key=0x7f060002;
+        public static final int send_to=0x7f060015;
         public static final int text_camera=0x7f060014;
         public static final int text_gallery=0x7f060013;
         public static final int title_activity_main=0x7f06000b;
