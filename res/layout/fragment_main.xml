@@ -4,18 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context="com.elitetek.scrambleme.MainFragment" >
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context="com.elitetek.scrambleme.MainFragment" >    
 
     <TextView
         android:id="@+id/textViewGalleryTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="@drawable/gradient_button"
+        android:gravity="center_horizontal"
         android:text="@string/gallery_title"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/text_color" />
+        android:textColor="@android:color/black" />
 
     <ListView
         android:id="@+id/listViewRoot"

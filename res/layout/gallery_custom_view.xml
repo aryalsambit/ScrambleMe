@@ -8,7 +8,7 @@
         android:id="@+id/imageViewNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="10sp"
         android:layout_weight="1"
         android:src="@drawable/ic_launcher" />
 
@@ -16,7 +16,7 @@
         android:id="@+id/imageViewScrambled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="10sp"
         android:layout_weight="1"
         android:src="@drawable/ic_launcher" />
 

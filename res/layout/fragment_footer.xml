@@ -3,6 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_footer"
     android:orientation="horizontal"
     tools:context="com.elitetek.scrambleme.FooterFragment" >
 
@@ -12,13 +13,13 @@
             android:id="@+id/buttonCamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
             android:background="@drawable/gradient_button"
             android:drawableLeft="@drawable/camera_small_alpha"
             android:drawableStart="@drawable/camera_small_alpha"
-            android:lineSpacingExtra="0dp"
-            android:padding="10dp"
+            android:lineSpacingExtra="0sp"
+            android:padding="10sp"
             android:text="@string/text_camera" />
 
         <Button
@@ -29,7 +30,7 @@
             android:background="@drawable/gradient_button"
             android:drawableLeft="@drawable/photo_smaller"
             android:drawableStart="@drawable/photo_smaller"
-            android:padding="10dp"
+            android:padding="10sp"
             android:text="@string/text_gallery" />
 
 </RelativeLayout>

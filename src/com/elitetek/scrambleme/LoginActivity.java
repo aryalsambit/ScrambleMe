@@ -48,12 +48,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 		
 		Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
 		Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
+		Typeface textFontBold = Typeface.createFromAsset(getAssets(), "fonts/Caviar_Dreams_Bold.ttf");
 		
-		login.setTypeface(textFont);
+		login.setTypeface(textFontBold);
 		login.setTextColor(Color.BLACK);
 		login.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
 		
-		create.setTypeface(textFont);
+		create.setTypeface(textFontBold);
 		create.setTextColor(Color.BLACK);
 		create.setTextSize(getResources().getDimension(R.dimen.button_text_size_small));
 		

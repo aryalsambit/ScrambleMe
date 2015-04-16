@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,8 +79,11 @@ public class SignupActivity extends Activity implements View.OnClickListener {
 				Toast.makeText(SignupActivity.this, "Password is left Blank", Toast.LENGTH_SHORT).show();
 			else if (passwordConfirm.getText().length() == 0)
 				Toast.makeText(SignupActivity.this, "Confirm Password is left Blank", Toast.LENGTH_SHORT).show();
-			else if (password.getText().toString().compareTo(passwordConfirm.getText().toString()) != 0)
+			else if (password.getText().toString().compareTo(passwordConfirm.getText().toString()) != 0) {
 				Toast.makeText(SignupActivity.this, "Passwords Do Not Match", Toast.LENGTH_SHORT).show();
+				password.setText("");
+				passwordConfirm.setText("");
+			}
 			else {
 				ParseUser user = new ParseUser();
 				user.setUsername(email.getText().toString().toLowerCase());
@@ -92,8 +96,8 @@ public class SignupActivity extends Activity implements View.OnClickListener {
 					public void done(ParseException e) {
 					    if (e == null) {
 					    	Toast.makeText(SignupActivity.this, "Account Created", Toast.LENGTH_LONG).show();			    	
-					    } else {			      
-					    	Toast.makeText(SignupActivity.this, "Email Already Exists", Toast.LENGTH_LONG).show();
+					    } else {					    	
+					    	Toast.makeText(SignupActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();					    	
 					    	email.setText("");
 					    }
 					}
