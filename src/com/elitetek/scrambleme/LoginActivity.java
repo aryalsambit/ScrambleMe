@@ -4,11 +4,13 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,6 +70,20 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 		
 		title.setTypeface(titleFont);
 		title.setTextSize(getResources().getDimension(R.dimen.title_text_size));
+		
+		/** ACTION BAR  ***********************************/
+		ActionBar mActionBar = getActionBar();
+		mActionBar.setDisplayShowHomeEnabled(false);
+		mActionBar.setDisplayShowTitleEnabled(false);
+		LayoutInflater mInflater = LayoutInflater.from(this);
+
+		View mCustomView = mInflater.inflate(R.layout.custum_action_bar, null);
+		TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.textViewActionBarTitle);
+		mTitleTextView.setText("Scramble Me");
+		mTitleTextView.setTypeface(titleFont);		
+
+		mActionBar.setCustomView(mCustomView);
+		mActionBar.setDisplayShowCustomEnabled(true);
 		/****   /UI element setup ********************************************************************************************/
 		
 		

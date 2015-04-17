@@ -1,11 +1,16 @@
 package com.elitetek.scrambleme;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.parse.ParseUser;
 
@@ -23,7 +28,22 @@ public class MainActivity extends Activity implements MainFragment.OnFragmentInt
 		getFragmentManager().beginTransaction()
     		.add(R.id.container, new MainFragment(), "main")
     		.add(R.id.footer, new FooterFragment(), "footer")
-    		.commit();		
+    		.commit();	
+		
+		ActionBar mActionBar = getActionBar();
+		mActionBar.setDisplayShowHomeEnabled(false);
+		mActionBar.setDisplayShowTitleEnabled(false);
+		LayoutInflater mInflater = LayoutInflater.from(this);
+
+		Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
+		
+		View mCustomView = mInflater.inflate(R.layout.custum_action_bar, null);
+		TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.textViewActionBarTitle);
+		mTitleTextView.setText("Scramble Me");
+		mTitleTextView.setTypeface(titleFont);		
+
+		mActionBar.setCustomView(mCustomView);
+		mActionBar.setDisplayShowCustomEnabled(true);
 	}
 
 	@Override

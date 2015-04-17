@@ -145,16 +145,16 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	}
 	
 	private void scrambleImage(Bitmap image) {
-		int rows = 32;
-		int cols = 32;
+		int rows = 64;
+		int cols = 64;
 		int chunkWidth = image.getWidth() / cols;
 		int chunkHeight = image.getHeight() / rows;
+		Log.d("demo", image.getWidth() + " " + image.getHeight());
 		int count = 0;
-		Bitmap[] imgs = new Bitmap[chunkWidth * chunkHeight];
+		Bitmap[] imgs = new Bitmap[rows * cols];
 		for (int x = 0; x < rows; x++) {
-			for (int y = 0; y < cols; y++) {
-				imgs[count] = Bitmap.createBitmap(image, x * chunkWidth, y
-						* chunkHeight, chunkWidth, chunkHeight);
+			for (int y = 0; y < cols; y++) {				
+				imgs[count] = Bitmap.createBitmap(image, x * chunkWidth, y * chunkHeight, chunkWidth, chunkHeight);
 				count++;
 			}
 		}
