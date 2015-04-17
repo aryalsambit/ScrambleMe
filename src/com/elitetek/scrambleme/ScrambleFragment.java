@@ -17,7 +17,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -117,6 +116,7 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 					
 					Intent share = new Intent(Intent.ACTION_SEND);
 					share.setType("image/jpeg");
+					share.putExtra(Intent.EXTRA_TEXT, "link of our app");
 					ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 					scrambledImg.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 					File f = new File(Environment.getExternalStorageDirectory() + File.separator + "temporary_file.jpg");
@@ -184,6 +184,12 @@ public class ScrambleFragment extends Fragment implements View.OnClickListener {
 	private Bitmap setPic(String mCurrentPhotoPath) {
 		int targetW = pictureToScramble.getWidth();
 		int targetH = pictureToScramble.getHeight();
+		int temp = 0;
+		if(targetH > targetW){
+			temp = targetW;
+			targetW = targetH;
+			targetH = temp;
+		}
 		BitmapFactory.Options bmOptions = new BitmapFactory.Options();
 		bmOptions.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
